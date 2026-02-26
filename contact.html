@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Contact Uncle Roger's Comic Shop - Visit us, call us, or send a message. Find our location, hours, and get in touch!">
+  <title>Contact Us | Uncle Roger's Comic Shop</title>
+  <script>
+    document.documentElement.classList.add('no-transition');
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else if (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    } catch (e) {
+      // localStorage not available, check system preference only
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('no-transition');
+      });
+    });
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        UNCLE ROGER'S
+        <span>COMIC SHOP</span>
+      </a>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Catalog</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <div class="hero-banner-wrapper">
+      <div class="hero-banner-text">
+        <h1 class="fade-in">Get In Touch</h1>
+        <p class="fade-in delay-1">
+          Questions? Want to sell your collection? Just want to chat comics? We're here for you!
+        </p>
+      </div>
+      <div class="hero-banner-image fade-in delay-2">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=500&h=350&fit=crop" alt="Comic shop interior">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section">
+    <div class="contact-wrapper">
+      <!-- Contact Info -->
+      <div class="contact-info fade-in">
+        <h2>Visit Us</h2>
+
+        <div class="info-item">
+          <span class="info-icon">📍</span>
+          <div>
+            <h3>Location</h3>
+            <p>123 Comic Lane<br>Heroville, NY 12345</p>
+            <p style="margin-top: 0.5rem; color: var(--primary-green);">Free parking in rear lot!</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <span class="info-icon">📞</span>
+          <div>
+            <h3>Phone</h3>
+            <p>(555) 123-4567</p>
+            <p style="opacity: 0.7; font-size: 0.9rem;">Call ahead for rare comic inquiries!</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <span class="info-icon">✉️</span>
+          <div>
+            <h3>Email</h3>
+            <p>hello@unclerogerscomics.com</p>
+            <p style="opacity: 0.7; font-size: 0.9rem;">We respond within 24 hours</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <span class="info-icon">🌐</span>
+          <div>
+            <h3>Follow Us</h3>
+            <div class="social-links" style="margin-top: 0.5rem;">
+              <a href="#" class="social-link">📘</a>
+              <a href="#" class="social-link">📸</a>
+              <a href="#" class="social-link">🐦</a>
+              <a href="#" class="social-link">📺</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form fade-in delay-1">
+        <h2>Send Us a Message</h2>
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Peter Parker" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="spidey@dailybugle.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone (Optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+          </div>
+
+          <div class="form-group">
+            <label for="subject">What's This About?</label>
+            <select id="subject" name="subject" required>
+              <option value="">Select a topic...</option>
+              <option value="general">General Inquiry</option>
+              <option value="pulllist">Pull List / Subscriptions</option>
+              <option value="selling">Selling My Collection</option>
+              <option value="grading">Grading Services</option>
+              <option value="special-order">Special Order Request</option>
+              <option value="events">Events & Gaming</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what's on your mind..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Store Hours Section -->
+  <section class="section" style="background: var(--darker-bg); margin: 0; max-width: 100%; padding: 5rem 2rem;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <h2 class="section-title">Store Hours</h2>
+      <div class="hours-grid">
+        <div class="hour-item fade-in">
+          <div class="day">Monday</div>
+          <div>10am - 8pm</div>
+        </div>
+        <div class="hour-item fade-in delay-1">
+          <div class="day">Tuesday</div>
+          <div>10am - 8pm</div>
+        </div>
+        <div class="hour-item fade-in delay-2">
+          <div class="day">Wednesday</div>
+          <div>10am - 8pm</div>
+          <div style="color: var(--primary-yellow); font-size: 0.8rem; margin-top: 0.5rem;">NEW COMIC DAY!</div>
+        </div>
+        <div class="hour-item fade-in delay-3">
+          <div class="day">Thursday</div>
+          <div>10am - 8pm</div>
+        </div>
+        <div class="hour-item fade-in delay-4">
+          <div class="day">Friday</div>
+          <div>10am - 10pm</div>
+          <div style="color: var(--primary-green); font-size: 0.8rem; margin-top: 0.5rem;">Game Night!</div>
+        </div>
+        <div class="hour-item fade-in">
+          <div class="day">Saturday</div>
+          <div>9am - 10pm</div>
+        </div>
+        <div class="hour-item fade-in delay-1">
+          <div class="day">Sunday</div>
+          <div>11am - 6pm</div>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 2rem; opacity: 0.8;">
+        <strong>Holiday Hours:</strong> We're closed on major holidays. Check our social media for special holiday
+        schedules!
+      </p>
+    </div>
+  </section>
+
+  <!-- Map Placeholder -->
+  <section class="section">
+    <h2 class="section-title">Find Us</h2>
+    <div class="map-placeholder">
+      <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1200&h=400&fit=crop" alt="Store Location Map">
+      <div class="map-overlay">
+        <h3>Interactive Map</h3>
+        <p>We're located in downtown Heroville, just two blocks from the Central Station.
+          Look for the giant Spider-Man mural on our building - you can't miss it!</p>
+        <a href="https://maps.google.com" target="_blank" class="btn btn-secondary">
+          Get Directions
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section" style="background: var(--card-bg); margin: 0; max-width: 100%; padding: 5rem 2rem;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="comic-panels" style="grid-template-columns: 1fr;">
+        <div class="panel fade-in">
+          <h3 style="color: var(--primary-yellow); margin-bottom: 1rem;">Do you buy comics?</h3>
+          <p>Yes! We buy single issues and entire collections. For large collections, we recommend calling ahead to
+            schedule an appointment. We'll give you a fair, honest appraisal based on current market values.</p>
+        </div>
+        <div class="panel fade-in delay-1">
+          <h3 style="color: var(--primary-yellow); margin-bottom: 1rem;">How does the pull list work?</h3>
+          <p>Simply tell us what titles you want to subscribe to, and we'll set aside a copy for you every time a new
+            issue comes out. Your comics are bagged and boarded, and you get 10% off cover price. Pick up weekly or
+            monthly - your choice!</p>
+        </div>
+        <div class="panel fade-in delay-2">
+          <h3 style="color: var(--primary-yellow); margin-bottom: 1rem;">Do you ship orders?</h3>
+          <p>We primarily serve local collectors in-store, but we can arrange shipping for special orders and rare
+            items. Contact us for shipping quotes on specific items.</p>
+        </div>
+        <div class="panel fade-in delay-3">
+          <h3 style="color: var(--primary-yellow); margin-bottom: 1rem;">What time do new comics arrive on Wednesday?
+          </h3>
+          <p>New comics are on the floor by 10 AM! Pull list members get early access starting at 9 AM. We recommend
+            coming early for hot titles and variant covers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Uncle Roger's Comic Shop</h3>
+        <p>Your friendly neighborhood comic shop since 1985. Where every collector finds a home.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📘</a>
+          <a href="#" class="social-link">📸</a>
+          <a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">📺</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="menu.html">Catalog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Store Hours</h3>
+        <p>Monday - Thursday: 10am - 8pm</p>
+        <p>Friday: 10am - 10pm</p>
+        <p>Saturday: 9am - 10pm</p>
+        <p>Sunday: 11am - 6pm</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>123 Comic Lane</p>
+        <p>Heroville, NY 12345</p>
+        <p>Phone: (555) 123-4567</p>
+        <p>Email: hello@unclerogerscomics.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Uncle Roger's Comic Shop. All rights reserved. Excelsior!</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    const toggle = document.getElementById('theme-toggle');
+
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    toggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+    toggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        toggle.textContent = '🌙';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      try {
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      } catch (e) {
+        // Saving failed, toggle still works for this session
+      }
+    });
+
+    // Listen for OS theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved) return; // User made a manual choice, respect it
+      } catch (err) {}
+
+      if (e.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        toggle.textContent = '🌙';
+      }
+    });
+  </script>
+</body>
+
+</html>

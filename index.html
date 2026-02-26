@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Uncle Roger's Comic Shop - Your local destination for comics, collectibles, and community. Serving collectors since 1985.">
+  <title>Uncle Roger's Comic Shop | Home</title>
+  <script>
+    document.documentElement.classList.add('no-transition');
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else if (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    } catch (e) {
+      // localStorage not available, check system preference only
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('no-transition');
+      });
+    });
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        UNCLE ROGER'S
+        <span>COMIC SHOP</span>
+      </a>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Catalog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <h1 class="fade-in">UNCLE ROGER'S<br>COMIC SHOP</h1>
+        <p class="tagline fade-in delay-1">Where Heroes Come Home!</p>
+        <p class="fade-in delay-2">
+          Your neighborhood destination for comics, graphic novels, collectibles,
+          and everything in between. Serving local collectors with passion since 1985.
+        </p>
+        <div class="fade-in delay-3">
+          <a href="menu.html" class="btn btn-primary">Browse Catalog</a>
+          <a href="contact.html" class="btn btn-secondary" style="margin-left: 1rem;">Visit Us</a>
+        </div>
+      </div>
+      <div class="hero-image fade-in delay-2">
+        <div class="image-placeholder">
+          <img src="public/images/hero.jpg" alt="Uncle Roger's Comic Shop - Bold 90s Comic Book Collection">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section">
+    <h2 class="section-title">Why Collectors Choose Us</h2>
+    <div class="features-grid">
+      <div class="feature-card fade-in">
+        <span class="feature-icon">📚</span>
+        <h3>Massive Collection</h3>
+        <p>Over 50,000 comics in stock! From golden age classics to the latest releases, we've got your pull list
+          covered. New shipments every Wednesday!</p>
+      </div>
+      <div class="feature-card fade-in delay-1">
+        <span class="feature-icon">💎</span>
+        <h3>Rare Finds</h3>
+        <p>Hunting for that grail? Our expert buyers source rare and vintage comics from estates, conventions, and
+          private collections worldwide.</p>
+      </div>
+      <div class="feature-card fade-in delay-2">
+        <span class="feature-icon">🎯</span>
+        <h3>Fair Grading</h3>
+        <p>Transparent grading using industry standards. What you see is what you get. We stand behind every comic we
+          sell with our satisfaction guarantee.</p>
+      </div>
+      <div class="feature-card fade-in delay-3">
+        <span class="feature-icon">🏆</span>
+        <h3>Community Hub</h3>
+        <p>More than a shop - we're a community! Weekly gaming nights, signing events, and a place where collectors
+          become friends.</p>
+      </div>
+      <div class="feature-card fade-in delay-4">
+        <span class="feature-icon">📦</span>
+        <h3>Subscription Boxes</h3>
+        <p>Never miss an issue! Set up your pull list and we'll have your comics bagged, boarded, and waiting for you
+          every week.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-icon">💰</span>
+        <h3>We Buy Comics</h3>
+        <p>Looking to sell your collection? We offer competitive prices and fair appraisals. From single issues to
+          entire collections, we're interested!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's New Section -->
+  <section class="section" style="background: var(--darker-bg); margin: 0; max-width: 100%; padding: 5rem 2rem;">
+    <div style="max-width: 1400px; margin: 0 auto;">
+      <h2 class="section-title">This Week at Uncle Roger's</h2>
+      <div class="comic-panels">
+        <div class="panel">
+          <span class="panel-number">1</span>
+          <h3 style="color: var(--primary-yellow); margin-bottom: 1rem;">New Comic Wednesday</h3>
+          <p>Fresh releases every Wednesday at 10 AM! Be first to grab the hottest new titles. Members get early access
+            starting at 9 AM.</p>
+        </div>
+        <div class="panel">
+          <span class="panel-number">2</span>
+          <h3 style="color: var(--primary-yellow); margin-bottom: 1rem;">Back Issue Blowout</h3>
+          <p>50% off all back issues priced under $10! Dig through our long boxes and discover hidden gems for your
+            collection.</p>
+        </div>
+        <div class="panel">
+          <span class="panel-number">3</span>
+          <h3 style="color: var(--primary-yellow); margin-bottom: 1rem;">Game Night Friday</h3>
+          <p>Join us every Friday at 6 PM for tabletop gaming! Magic: The Gathering tournaments, D&D sessions, and more.
+          </p>
+        </div>
+        <div class="panel">
+          <span class="panel-number">4</span>
+          <h3 style="color: var(--primary-yellow); margin-bottom: 1rem;">Artist Alley Saturday</h3>
+          <p>Local artists showcase their work! Commission custom art, meet creators, and support the indie comic
+            community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section" style="text-align: center;">
+    <h2 class="section-title">Ready to Start Your Collection?</h2>
+    <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; opacity: 0.9;">
+      Whether you're a seasoned collector or just starting out, Uncle Roger and the team
+      are here to help you find your next great read.
+    </p>
+    <a href="contact.html" class="btn btn-primary">Find Us Today</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Uncle Roger's Comic Shop</h3>
+        <p>Your friendly neighborhood comic shop since 1985. Where every collector finds a home.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📘</a>
+          <a href="#" class="social-link">📸</a>
+          <a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">📺</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="menu.html">Catalog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Store Hours</h3>
+        <p>Monday - Thursday: 10am - 8pm</p>
+        <p>Friday: 10am - 10pm</p>
+        <p>Saturday: 9am - 10pm</p>
+        <p>Sunday: 11am - 6pm</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>123 Comic Lane</p>
+        <p>Heroville, NY 12345</p>
+        <p>Phone: (555) 123-4567</p>
+        <p>Email: hello@unclerogerscomics.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Uncle Roger's Comic Shop. All rights reserved. Excelsior!</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    const toggle = document.getElementById('theme-toggle');
+
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    toggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+    toggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        toggle.textContent = '🌙';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      try {
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      } catch (e) {
+        // Saving failed, toggle still works for this session
+      }
+    });
+
+    // Listen for OS theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved) return; // User made a manual choice, respect it
+      } catch (err) {}
+
+      if (e.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        toggle.textContent = '🌙';
+      }
+    });
+  </script>
+</body>
+
+</html>

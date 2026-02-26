@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Browse Uncle Roger's Comic Shop catalog - New releases, vintage comics, graphic novels, collectibles, and more.">
+  <title>Catalog | Uncle Roger's Comic Shop</title>
+  <script>
+    document.documentElement.classList.add('no-transition');
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else if (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    } catch (e) {
+      // localStorage not available, check system preference only
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('no-transition');
+      });
+    });
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        UNCLE ROGER'S
+        <span>COMIC SHOP</span>
+      </a>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html" class="active">Catalog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="menu-hero">
+    <div class="hero-banner-wrapper">
+      <div class="hero-banner-text">
+        <h1 class="fade-in">Our Catalog</h1>
+        <p class="fade-in delay-1">
+          From new releases to vintage treasures - discover your next favorite read.
+        </p>
+      </div>
+      <div class="hero-banner-image fade-in delay-2">
+        <img src="https://images.unsplash.com/photo-1601645191163-3fc0d5d64e35?w=500&h=350&fit=crop" alt="Comic books on shelf">
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog Section -->
+  <section class="section">
+    <div class="menu-categories">
+      <button class="category-btn active" data-filter="all">All Items</button>
+      <button class="category-btn" data-filter="new-release">New Releases</button>
+      <button class="category-btn" data-filter="vintage">Vintage</button>
+      <button class="category-btn" data-filter="graphic-novel">Graphic Novels</button>
+      <button class="category-btn" data-filter="manga">Manga</button>
+      <button class="category-btn" data-filter="collectible">Collectibles</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+      <!-- Items will be rendered by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section" style="background: var(--darker-bg); margin: 0; max-width: 100%; padding: 5rem 2rem;">
+    <div style="max-width: 1400px; margin: 0 auto;">
+      <h2 class="section-title">Our Services</h2>
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <span class="feature-icon">📋</span>
+          <h3>Pull List Service</h3>
+          <p>Never miss an issue! Sign up for our subscription service and we'll set aside your favorite titles every
+            week, bagged and boarded.</p>
+        </div>
+        <div class="feature-card fade-in delay-1">
+          <span class="feature-icon">🔍</span>
+          <h3>Comic Grading</h3>
+          <p>We offer pre-screening and submission services for CGC and CBCS. Get professional grading without the
+            hassle.</p>
+        </div>
+        <div class="feature-card fade-in delay-2">
+          <span class="feature-icon">📦</span>
+          <h3>Special Orders</h3>
+          <p>Can't find what you're looking for? We can special order almost any comic, trade, or collectible. Just ask!
+          </p>
+        </div>
+        <div class="feature-card fade-in delay-3">
+          <span class="feature-icon">💵</span>
+          <h3>We Buy Collections</h3>
+          <p>Looking to sell? We buy single issues and entire collections. Fair prices and honest appraisals guaranteed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscription CTA -->
+  <section class="section" style="text-align: center;">
+    <h2 class="section-title">Start Your Pull List Today</h2>
+    <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; opacity: 0.9;">
+      Members get 10% off all new releases, early access on Wednesdays, and exclusive variant covers!
+    </p>
+    <a href="contact.html" class="btn btn-primary">Sign Up Now</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Uncle Roger's Comic Shop</h3>
+        <p>Your friendly neighborhood comic shop since 1985. Where every collector finds a home.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📘</a>
+          <a href="#" class="social-link">📸</a>
+          <a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">📺</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="menu.html">Catalog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Store Hours</h3>
+        <p>Monday - Thursday: 10am - 8pm</p>
+        <p>Friday: 10am - 10pm</p>
+        <p>Saturday: 9am - 10pm</p>
+        <p>Sunday: 11am - 6pm</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>123 Comic Lane</p>
+        <p>Heroville, NY 12345</p>
+        <p>Phone: (555) 123-4567</p>
+        <p>Email: hello@unclerogerscomics.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Uncle Roger's Comic Shop. All rights reserved. Excelsior!</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    // Comics catalog array
+    const comics = [
+      {
+        id: 1,
+        title: "Amazing Spider-Man #47",
+        category: "new-release",
+        categoryLabel: "New Release",
+        description: "The latest chapter in the web-slinger's ongoing saga! Cover by John Romita Jr.",
+        price: "$4.99",
+        icon: "🦸‍♂️",
+        gradient: "linear-gradient(135deg, #a67ed9, #5a9be6)"
+      },
+      {
+        id: 2,
+        title: "Batman: Dark City #12",
+        category: "new-release",
+        categoryLabel: "New Release",
+        description: "Gotham faces its darkest hour as the Court of Owls returns!",
+        price: "$5.99",
+        icon: "🦇",
+        gradient: "linear-gradient(135deg, #252836, #5a9be6)"
+      },
+      {
+        id: 3,
+        title: "X-Men: Phoenix Rising #1",
+        category: "new-release",
+        categoryLabel: "New Release",
+        description: "A new era begins! First issue collector's edition with variant covers available.",
+        price: "$6.99",
+        icon: "⚡",
+        gradient: "linear-gradient(135deg, #4dc9a4, #5a9be6)"
+      },
+      {
+        id: 4,
+        title: "Incredible Hulk #181",
+        category: "vintage",
+        categoryLabel: "Vintage - Bronze Age",
+        description: "First full appearance of Wolverine! CGC 7.5 certified. A true grail piece.",
+        price: "$4,500.00",
+        icon: "⭐",
+        gradient: "linear-gradient(135deg, #f0c95c, #e8956b)"
+      },
+      {
+        id: 5,
+        title: "Amazing Fantasy #15",
+        category: "vintage",
+        categoryLabel: "Vintage - Silver Age",
+        description: "First appearance of Spider-Man! CGC 4.0. A cornerstone of any collection.",
+        price: "$85,000.00",
+        icon: "🌟",
+        gradient: "linear-gradient(135deg, #e07682, #a67ed9)"
+      },
+      {
+        id: 6,
+        title: "New Mutants #98",
+        category: "vintage",
+        categoryLabel: "Vintage - Copper Age",
+        description: "First appearance of Deadpool! NM condition, raw copy ready for grading.",
+        price: "$450.00",
+        icon: "💥",
+        gradient: "linear-gradient(135deg, #a67ed9, #5a9be6)"
+      },
+      {
+        id: 7,
+        title: "Watchmen - Deluxe Edition",
+        category: "graphic-novel",
+        categoryLabel: "Graphic Novel",
+        description: "Alan Moore's masterpiece in a stunning hardcover deluxe format.",
+        price: "$39.99",
+        icon: "📖",
+        gradient: "linear-gradient(135deg, #252836, #e07682)"
+      },
+      {
+        id: 8,
+        title: "Saga Compendium One",
+        category: "graphic-novel",
+        categoryLabel: "Graphic Novel",
+        description: "The first 54 issues of the epic sci-fi/fantasy series in one volume!",
+        price: "$59.99",
+        icon: "📚",
+        gradient: "linear-gradient(135deg, #1e2130, #4dc9a4)"
+      },
+      {
+        id: 9,
+        title: "Maus: Complete Edition",
+        category: "graphic-novel",
+        categoryLabel: "Graphic Novel",
+        description: "Art Spiegelman's Pulitzer Prize-winning Holocaust narrative.",
+        price: "$35.00",
+        icon: "📕",
+        gradient: "linear-gradient(135deg, #1a1d28, #f0c95c)"
+      },
+      {
+        id: 10,
+        title: "One Piece Box Set 4",
+        category: "manga",
+        categoryLabel: "Manga",
+        description: "Volumes 71-90 of the world's best-selling manga series!",
+        price: "$189.99",
+        icon: "🔥",
+        gradient: "linear-gradient(135deg, #e8956b, #f0c95c)"
+      },
+      {
+        id: 11,
+        title: "Chainsaw Man Vol. 1-11",
+        category: "manga",
+        categoryLabel: "Manga",
+        description: "Complete Part 1 set of Tatsuki Fujimoto's hit series.",
+        price: "$109.99",
+        icon: "👹",
+        gradient: "linear-gradient(135deg, #e07682, #252836)"
+      },
+      {
+        id: 12,
+        title: "Berserk Deluxe Vol. 1",
+        category: "manga",
+        categoryLabel: "Manga",
+        description: "Kentaro Miura's dark fantasy epic in premium hardcover format.",
+        price: "$49.99",
+        icon: "⚔️",
+        gradient: "linear-gradient(135deg, #5a9be6, #a67ed9)"
+      },
+      {
+        id: 13,
+        title: "Spider-Man 1/6 Scale Statue",
+        category: "collectible",
+        categoryLabel: "Collectible",
+        description: "Premium collectible statue by Sideshow. Limited to 2,500 pieces worldwide.",
+        price: "$549.99",
+        icon: "🎭",
+        gradient: "linear-gradient(135deg, #4dc9a4, #5a9be6)"
+      },
+      {
+        id: 14,
+        title: "Vintage Trading Cards Set",
+        category: "collectible",
+        categoryLabel: "Collectible",
+        description: "Complete 1990 Marvel Universe Series 1 trading card set. NM condition.",
+        price: "$75.00",
+        icon: "🎴",
+        gradient: "linear-gradient(135deg, #a67ed9, #e07682)"
+      },
+      {
+        id: 15,
+        title: "Signed Print - Jim Lee",
+        category: "collectible",
+        categoryLabel: "Collectible",
+        description: "Limited edition X-Men #1 recreation print signed by Jim Lee with COA.",
+        price: "$299.99",
+        icon: "🦸",
+        gradient: "linear-gradient(135deg, #f0c95c, #e07682)"
+      }
+    ];
+
+    // Render comics to the grid
+    function renderComics(filter = 'all') {
+      const menuGrid = document.getElementById('menuGrid');
+      const filteredComics = filter === 'all'
+        ? comics
+        : comics.filter(comic => comic.category === filter);
+
+      menuGrid.innerHTML = filteredComics.map((comic, index) => `
+        <div class="menu-item fade-in${index % 3 === 1 ? ' delay-1' : index % 3 === 2 ? ' delay-2' : ''}">
+          <div class="menu-item-image" style="background: ${comic.gradient};">${comic.icon}</div>
+          <div class="menu-item-content">
+            <span class="category">${comic.categoryLabel}</span>
+            <h3>${comic.title}</h3>
+            <p class="description">${comic.description}</p>
+            <span class="price">${comic.price}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Category filter buttons
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.getAttribute('data-filter');
+        renderComics(filter);
+      });
+    });
+
+    // Initial render
+    renderComics();
+
+    const toggle = document.getElementById('theme-toggle');
+
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    toggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+    toggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        toggle.textContent = '🌙';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      try {
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      } catch (e) {
+        // Saving failed, toggle still works for this session
+      }
+    });
+
+    // Listen for OS theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved) return; // User made a manual choice, respect it
+      } catch (err) {}
+
+      if (e.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        toggle.textContent = '🌙';
+      }
+    });
+  </script>
+</body>
+
+</html>

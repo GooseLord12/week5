@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Learn about Uncle Roger's Comic Shop - Our story, mission, and the passionate team behind your favorite local comic shop.">
+  <title>About Us | Uncle Roger's Comic Shop</title>
+  <script>
+    document.documentElement.classList.add('no-transition');
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else if (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    } catch (e) {
+      // localStorage not available, check system preference only
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('no-transition');
+      });
+    });
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        UNCLE ROGER'S
+        <span>COMIC SHOP</span>
+      </a>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="menu.html">Catalog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="hero-banner-wrapper">
+      <div class="hero-banner-text">
+        <h1 class="fade-in">Our Story</h1>
+        <p class="fade-in delay-1">
+          More than just a shop - we're a legacy of passion, community, and comic book love.
+        </p>
+      </div>
+      <div class="hero-banner-image fade-in delay-2">
+        <img src="public/images/additiona.jpg" alt="Children reading comic books in the 90s">
+      </div>
+    </div>
+  </section>
+
+  <!-- Main About Section -->
+  <section class="section">
+    <div class="about-content">
+      <div class="about-image fade-in">
+        <img src="public/images/about.jpg" alt="Uncle Roger stocking comic book shelves with a warm smile" style="width: 100%; border-radius: 12px; object-fit: cover;">
+      </div>
+      <div class="about-text fade-in delay-1">
+        <h2>Meet Uncle Roger</h2>
+        <p>
+          It all started in 1985 when Roger Martinez, fresh out of college with a degree in
+          art history and a collection of over 3,000 comics, decided to turn his passion into
+          a profession. With a small loan and a big dream, he opened the doors to what would
+          become the region's most beloved comic shop.
+        </p>
+        <p>
+          "Everyone called me 'Uncle Roger' because I treated every young collector like family,"
+          Roger recalls. "I'd help kids find their first comic, explain the difference between
+          ages, and always made sure everyone felt welcome. That spirit hasn't changed in 40 years."
+        </p>
+        <p>
+          Today, while Roger has semi-retired (you'll still find him behind the counter most
+          Saturdays!), the shop is run by his daughter Maria and a team of equally passionate
+          comic enthusiasts who carry on the tradition of community, expertise, and love for
+          the medium.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="section" style="background: var(--darker-bg); margin: 0; max-width: 100%; padding: 5rem 2rem;">
+    <div style="max-width: 1400px; margin: 0 auto;">
+      <h2 class="section-title">Our Journey</h2>
+      <div class="timeline">
+        <div class="timeline-item fade-in">
+          <h3>1985 - The Beginning</h3>
+          <p>Uncle Roger opens the shop in a small 400 sq ft storefront with just 500 comics and a dream. The first
+            customer was a 10-year-old looking for Amazing Spider-Man #252.</p>
+        </div>
+        <div class="timeline-item fade-in delay-1">
+          <h3>1992 - First Expansion</h3>
+          <p>The comic boom of the early 90s allows us to move to a larger location. We add gaming tables and start
+            hosting our first tournaments.</p>
+        </div>
+        <div class="timeline-item fade-in delay-2">
+          <h3>1999 - Surviving the Crash</h3>
+          <p>When the speculator bubble bursts, many shops close. We survive by focusing on what matters: community and
+            genuine collectors.</p>
+        </div>
+        <div class="timeline-item fade-in delay-3">
+          <h3>2008 - The Comic Renaissance</h3>
+          <p>Comic book movies bring new fans to the hobby. We launch our subscription box service and double our
+            customer base.</p>
+        </div>
+        <div class="timeline-item fade-in delay-4">
+          <h3>2015 - Maria Takes the Helm</h3>
+          <p>Roger's daughter Maria, who grew up in the shop, officially becomes manager. She modernizes operations
+            while keeping the family spirit alive.</p>
+        </div>
+        <div class="timeline-item fade-in">
+          <h3>2024 - 40 Years Strong</h3>
+          <p>We celebrate four decades of serving collectors! Now in our largest location yet, with over 50,000 comics
+            and a community that spans generations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="section">
+    <h2 class="section-title">Meet The Team</h2>
+    <div class="features-grid">
+      <div class="feature-card fade-in">
+        <span class="feature-icon">👨‍🦳</span>
+        <h3>Uncle Roger</h3>
+        <p><strong>Founder & Chief Storyteller</strong></p>
+        <p>Still drops by on Saturdays to share stories and grade vintage comics. His specialty? Golden Age DC and early
+          Marvel.</p>
+      </div>
+      <div class="feature-card fade-in delay-1">
+        <span class="feature-icon">👩‍💼</span>
+        <h3>Maria Martinez</h3>
+        <p><strong>Shop Manager</strong></p>
+        <p>Grew up surrounded by comics and now runs the day-to-day. Indie comics expert and champion of new readers.
+        </p>
+      </div>
+      <div class="feature-card fade-in delay-2">
+        <span class="feature-icon">🧔</span>
+        <h3>Jake "The Expert" Wilson</h3>
+        <p><strong>Vintage Specialist</strong></p>
+        <p>CGC-certified grader with an encyclopedic knowledge of Bronze Age comics. If it's rare, Jake knows its story.
+        </p>
+      </div>
+      <div class="feature-card fade-in delay-3">
+        <span class="feature-icon">👩‍🎨</span>
+        <h3>Sarah Chen</h3>
+        <p><strong>Events Coordinator</strong></p>
+        <p>Organizes our gaming nights, signing events, and community outreach. Also our resident manga expert!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="section" style="background: var(--card-bg); margin: 0; max-width: 100%; padding: 5rem 2rem;">
+    <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+      <h2 class="section-title">Our Mission</h2>
+      <div class="comic-panels" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="panel fade-in">
+          <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Preserve the Art</h3>
+          <p>Comics are an art form deserving of respect and preservation. We're committed to maintaining the history of
+            the medium and educating new generations about its cultural significance.</p>
+        </div>
+        <div class="panel fade-in delay-1">
+          <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Build Community</h3>
+          <p>A comic shop should be more than retail - it should be a gathering place. We foster connections between
+            collectors, creators, and readers of all ages and backgrounds.</p>
+        </div>
+        <div class="panel fade-in delay-2">
+          <h3 style="color: var(--primary-purple); margin-bottom: 1rem;">Champion Creators</h3>
+          <p>We actively support indie publishers, local artists, and emerging talent. Every voice deserves a chance to
+            be heard, and every story deserves to be told.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section" style="text-align: center;">
+    <h2 class="section-title">Come Be Part of Our Story</h2>
+    <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; opacity: 0.9;">
+      Whether you're a first-time reader or a lifelong collector, there's a place for you
+      at Uncle Roger's. Stop by and say hello!
+    </p>
+    <a href="contact.html" class="btn btn-primary">Visit Us Today</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Uncle Roger's Comic Shop</h3>
+        <p>Your friendly neighborhood comic shop since 1985. Where every collector finds a home.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📘</a>
+          <a href="#" class="social-link">📸</a>
+          <a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">📺</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="menu.html">Catalog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Store Hours</h3>
+        <p>Monday - Thursday: 10am - 8pm</p>
+        <p>Friday: 10am - 10pm</p>
+        <p>Saturday: 9am - 10pm</p>
+        <p>Sunday: 11am - 6pm</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>123 Comic Lane</p>
+        <p>Heroville, NY 12345</p>
+        <p>Phone: (555) 123-4567</p>
+        <p>Email: hello@unclerogerscomics.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Uncle Roger's Comic Shop. All rights reserved. Excelsior!</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    const toggle = document.getElementById('theme-toggle');
+
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    toggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+    toggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        toggle.textContent = '🌙';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      try {
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      } catch (e) {
+        // Saving failed, toggle still works for this session
+      }
+    });
+
+    // Listen for OS theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved) return; // User made a manual choice, respect it
+      } catch (err) {}
+
+      if (e.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        toggle.textContent = '🌙';
+      }
+    });
+  </script>
+</body>
+
+</html>
