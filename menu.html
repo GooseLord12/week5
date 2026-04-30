@@ -50,7 +50,14 @@
         <li><a href="menu.html" class="active">Catalog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      <div class="theme-switch-wrapper">
+        <span class="theme-label light-label">Light</span>
+        <label class="theme-switch" for="theme-toggle">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+        </label>
+        <span class="theme-label dark-label">Dark</span>
+      </div>
     </div>
   </nav>
 
@@ -163,7 +170,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Uncle Roger's Comic Shop. All rights reserved. Excelsior!</p>
+      <p>&copy; 2026 Uncle Roger's Comic Shop. All rights reserved. Excelsior!</p>
     </div>
   </footer>
 
@@ -362,19 +369,16 @@
     const toggle = document.getElementById('theme-toggle');
 
     const currentTheme = document.documentElement.getAttribute('data-theme');
-    toggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+    toggle.checked = currentTheme === 'dark';
 
-    toggle.addEventListener('click', () => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      if (isDark) {
-        document.documentElement.removeAttribute('data-theme');
-        toggle.textContent = '🌙';
-      } else {
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
         document.documentElement.setAttribute('data-theme', 'dark');
-        toggle.textContent = '☀️';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
       }
       try {
-        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        localStorage.setItem('theme', toggle.checked ? 'dark' : 'light');
       } catch (e) {
         // Saving failed, toggle still works for this session
       }
@@ -389,10 +393,10 @@
 
       if (e.matches) {
         document.documentElement.setAttribute('data-theme', 'dark');
-        toggle.textContent = '☀️';
+        toggle.checked = true;
       } else {
         document.documentElement.removeAttribute('data-theme');
-        toggle.textContent = '🌙';
+        toggle.checked = false;
       }
     });
   </script>
